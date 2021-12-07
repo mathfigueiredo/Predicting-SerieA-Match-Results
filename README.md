@@ -30,4 +30,28 @@ As we can see, with this player, Fortaleza has twice the chance of winning a mat
 # Webscraping the data
 
 
-The two greater Brazilian Soccer Leagues (Série A and Série B) has 20 teams each, which means that each league will have 380 matches. 
+The two greater Brazilian Soccer Leagues (Série A and Série B) have 20 teams each, which means that each league will have 380 matches. Getting these data manually would be painful, as each match starts with 22 players. Also, we could make lots of mistakes if we try this. My solution was to create a bot that goes to some website and grasp the useful information. I used two tools to build this bot: Python and Selenium.
+<br><br>
+You can check the full code here at the [BRScraping.ipynb](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/BRScraping.ipynb) notebook.
+<br><br>
+It is very simple to use this bot. All you should do is run the **append_matchweeks** function with two parameters:
+- start_matchweek: the first matchweek to grasp.
+- end_matchweek: the last matchweek to grasp. Together, they should be an interval.
+<br>
+i.e.: to get the data from matchweek 1 and matchweek 36, just call the function *append_matchweeks(1,36)*
+<br>
+But remember: you should have a **table** Pandas Dataframe so the function can append the gathered data to this table. If you don't have this table yet, make an empty DataFrame with those columns to start:
+```
+columns = ['MATCHWEEK','HTEAM','ATEAM','HGK','HDEF1','HDEF2','HDEF3','HDEF4','HDEF5','HMID1','HMID2','HMID3','HMID4','HMID5','HMID6','HFOR1','HFOR2','HFOR3','HFOR4','HFOR5','AGK','ADEF1','ADEF2','ADEF3','ADEF4','ADEF5','AMID1','AMID2','AMID3','AMID4','AMID5','AMID6','AFOR1','AFOR2','AFOR3','AFOR4','AFOR5','HFULLGOAL','AFULLGOAL','FULLRESULT']
+
+table = pd.DataFrame(columns=columns)
+```
+<br>
+If you already have a table with some matchweeks in it, just load it with pandas read_csv function:
+```
+table = pd.read_csv('table.csv')
+```
+<br>
+It is always good to check the consistency of the data. Sometimes, due to instabilities on internet connection or on the website server, the bot can get wrong data or duplicated observations. We can check countplots and duplicated rows just to check if all teams have the amount of games that we expect.
+<br>
+i.e.: for the matchweek 36, we want all teams to have exactly 18 matches as Hometeam and the same amount as Awayteam:
