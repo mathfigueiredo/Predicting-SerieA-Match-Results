@@ -41,6 +41,7 @@ It is very simple to use this bot. All you should do is run the **append_matchwe
 i.e.: to get the data from matchweek 1 and matchweek 36, just call the function *append_matchweeks(1,36)*
 <br>
 But remember: you should have a **table** Pandas Dataframe so the function can append the gathered data to this table. If you don't have this table yet, make an empty DataFrame with those columns to start:
+
 ```
 columns = ['MATCHWEEK','HTEAM','ATEAM','HGK','HDEF1','HDEF2','HDEF3','HDEF4','HDEF5','HMID1','HMID2','HMID3','HMID4','HMID5','HMID6','HFOR1','HFOR2','HFOR3','HFOR4','HFOR5','AGK','ADEF1','ADEF2','ADEF3','ADEF4','ADEF5','AMID1','AMID2','AMID3','AMID4','AMID5','AMID6','AFOR1','AFOR2','AFOR3','AFOR4','AFOR5','HFULLGOAL','AFULLGOAL','FULLRESULT']
 
