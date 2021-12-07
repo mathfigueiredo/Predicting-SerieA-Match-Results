@@ -6,7 +6,7 @@ I realized that every single Machine Learning model related to soccer that peopl
 
 First, I want to convince you that using the players' name to predict the result can be useful in some situations. Let's check the games where Fortaleza played with and without the player Lucas Crispim.
 
-...
+```
 victories_with_lucascrispim = len(table[((table['HMID5'] == 'FOR_lucascrispim') & (table['FULLRESULT'] == 'H')) | ((table['AMID5'] == 'FOR_lucascrispim') & (table['FULLRESULT'] == 'A'))])
 
 victories_without_lucascrispim = len(table[((table['HTEAM'] == 'FORTALEZA') & (table['HMID5'] != 'FOR_lucascrispim') & (table['FULLRESULT'] == 'H')) | ((table['ATEAM'] == 'FORTALEZA') & (table['AMID5'] != 'FOR_lucascrispim') & (table['FULLRESULT'] == 'A'))])
@@ -14,7 +14,7 @@ victories_without_lucascrispim = len(table[((table['HTEAM'] == 'FORTALEZA') & (t
 total_matches_with_lucascrispim = len(table[(table['HMID5'] == 'FOR_lucascrispim') | (table['AMID5'] == 'FOR_lucascrispim')])
 
 total_matches_without_lucascrispim = len(table[((table['HTEAM'] == 'FORTALEZA') & (table['HMID5'] != 'FOR_lucascrispim')) | ((table['ATEAM'] == 'FORTALEZA') & (table['AMID5'] != 'FOR_lucascrispim'))])
-...
+```
 
 Those are the results from Matchweek 1 to Matchweek 36:
 - Total matches with Lucas Crispim: 21
