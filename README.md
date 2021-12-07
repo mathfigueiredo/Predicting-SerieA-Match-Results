@@ -66,6 +66,7 @@ Let's try to make this section not so long, but you can find other checkings dir
 
 
 That's it for WebScraping. We also find a section on the notebook to get Features (X) and Target (y) and save it with pickle and the table itself in csv, in case we need some of those useful files.
+
 ----------
 # Tuning model parameters (using GridSearchCV)
 You can check the [Tuning notebook](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/Tuning.ipynb) to see how I used GridSearchCV to achieve the best result of each parameter. First, I found the best parameters for each model. Then, I tried 30 differents train and test splits for each model and got a table with some information about the accuracy scores foundm. As you can see in the table below, the best model for this dataset seems to be the Random Forest Classifier, with an accuracy score mean of **0.47** and std **0.013**.
