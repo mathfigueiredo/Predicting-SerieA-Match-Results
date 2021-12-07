@@ -7,15 +7,18 @@ I realized that every single Machine Learning model related to soccer that peopl
 First, I want to convince you that using the players' name to predict the result can be useful in some situations. Let's check the games where Fortaleza played with and without the player Lucas Crispim.
 
 ```
-victories_with_lucascrispim = len(table[((table['HMID5'] == 'FOR_lucascrispim') & (table['FULLRESULT'] == 'H')) | ((table['AMID5'] == 'FOR_lucascrispim') & (table['FULLRESULT'] == 'A'))])
+victories_with_lucascrispim = table[((table['HMID5'] == 'FOR_lucascrispim') & (table['FULLRESULT'] == 'H')) | ((table['AMID5'] == 'FOR_lucascrispim') & (table['FULLRESULT'] == 'A'))]
 
-victories_without_lucascrispim = len(table[((table['HTEAM'] == 'FORTALEZA') & (table['HMID5'] != 'FOR_lucascrispim') & (table['FULLRESULT'] == 'H')) | ((table['ATEAM'] == 'FORTALEZA') & (table['AMID5'] != 'FOR_lucascrispim') & (table['FULLRESULT'] == 'A'))])
+victories_without_lucascrispim = table[((table['HTEAM'] == 'FORTALEZA') & (table['HMID5'] != 'FOR_lucascrispim') & (table['FULLRESULT'] == 'H')) | ((table['ATEAM'] == 'FORTALEZA') & (table['AMID5'] != 'FOR_lucascrispim') & (table['FULLRESULT'] == 'A'))]
 
-total_matches_with_lucascrispim = len(table[(table['HMID5'] == 'FOR_lucascrispim') | (table['AMID5'] == 'FOR_lucascrispim')])
+total_matches_with_lucascrispim = table[(table['HMID5'] == 'FOR_lucascrispim') | (table['AMID5'] == 'FOR_lucascrispim')]
 
-total_matches_without_lucascrispim = len(table[((table['HTEAM'] == 'FORTALEZA') & (table['HMID5'] != 'FOR_lucascrispim')) | ((table['ATEAM'] == 'FORTALEZA') & (table['AMID5'] != 'FOR_lucascrispim'))])
+total_matches_without_lucascrispim = table[((table['HTEAM'] == 'FORTALEZA') & (table['HMID5'] != 'FOR_lucascrispim')) | ((table['ATEAM'] == 'FORTALEZA') & (table['AMID5'] != 'FOR_lucascrispim'))]
 ```
+Let's plot the results:
 
+![Fortaleza matches with and without Lucas Crispim](/LucasCrispim.png)
+<br>
 Those are the results from Matchweek 1 to Matchweek 36:
 - Total matches with Lucas Crispim: 21
 - Victories with Lucas Crispim: 12 (57.14%)
