@@ -17,7 +17,7 @@ total_matches_without_lucascrispim = table[((table['HTEAM'] == 'FORTALEZA') & (t
 ```
 Let's plot the results:
 
-![Fortaleza matches with and without Lucas Crispim](/LucasCrispim.png)
+![Fortaleza matches with and without Lucas Crispim](/img/LucasCrispim.png)
 <br>
 Those are the results from Matchweek 1 to Matchweek 36:
 - Total matches with Lucas Crispim: 21
@@ -60,7 +60,7 @@ It is always good to check the consistency of the data. Sometimes, due to instab
 i.e.: for the matchweek 36, we want all teams to have exactly 18 matches as Hometeam and the same amount as Awayteam:
 <br>
 
-![Awayteam checking](/ATEAM_check.png)
+![Awayteam checking](/img/ATEAM_check.png)
 
 Let's try to make this section not so long, but you can find other checkings directly in the notebook.
 
@@ -71,7 +71,7 @@ That's it for WebScraping. We also find a section on the notebook to get Feature
 You can check the [Tuning notebook](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/Tuning.ipynb) to see how I used GridSearchCV to achieve the best result of each parameter. First, I found the best parameters for each model. Then, I tried 30 differents train and test splits for each model and got a table with some information about the accuracy scores foundm. As you can see in the table below, the best model for this dataset seems to be the Random Forest Classifier, with an accuracy score mean of **0.47** and std **0.013**.
 
 
-![Tuning results](/tuning_results.png)
+![Tuning results](/img/tuning_results.png)
 
 --------
 # Finally... Predicting
