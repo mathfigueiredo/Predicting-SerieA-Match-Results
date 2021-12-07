@@ -26,7 +26,7 @@ Those are the results from Matchweek 1 to Matchweek 36:
 - Victories without Lucas Crispim: 4 (26.66%)
 
 As we can see, with this player, Fortaleza has twice the chance of winning a match than without him.
-
+---------
 # Webscraping the data
 
 
@@ -58,5 +58,16 @@ table = pd.read_csv('table.csv')
 It is always good to check the consistency of the data. Sometimes, due to instabilities on internet connection or on the website server, the bot can get wrong data or duplicated observations. We can check countplots and duplicated rows just to check if all teams have the amount of games that we expect.
 <br>
 i.e.: for the matchweek 36, we want all teams to have exactly 18 matches as Hometeam and the same amount as Awayteam:
+<br>
+![image](https://user-images.githubusercontent.com/83842790/145118197-5727e2cb-6140-4cf1-8d1b-d57f0538c080.png)
 
-![Hometeam checking](/HTEAM_check.png) ![Awayteam checking](/ATEAM_check.png)
+
+That's it for WebScraping. We also find a section on the notebook to get Features (X) and Target (y) and save it with pickle and the table itself in csv, in case we need some of those useful files.
+----------
+# Tuning model parameters (using GridSearchCV)
+You can check the [Tuning notebook](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/Tuning.ipynb) to see how I used GridSearchCV to achieve the best result of each parameter. First, I found the best parameters for each model. Then, I tried 30 differents train and test splits for each model and got a table with some information about the accuracy scores foundm. As you can see in the table below, the best model for this dataset seems to be the Random Forest Classifier, with an accuracy score mean of **0.47** and std **0.013**.
+
+
+![image](https://user-images.githubusercontent.com/83842790/145117965-f5810c97-659a-4fad-b4e8-76e568a8aa36.png)
+--------
+# Finally... Predicting
