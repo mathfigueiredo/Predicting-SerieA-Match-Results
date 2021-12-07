@@ -55,3 +55,4 @@ table = pd.read_csv('table.csv')
 It is always good to check the consistency of the data. Sometimes, due to instabilities on internet connection or on the website server, the bot can get wrong data or duplicated observations. We can check countplots and duplicated rows just to check if all teams have the amount of games that we expect.
 <br>
 i.e.: for the matchweek 36, we want all teams to have exactly 18 matches as Hometeam and the same amount as Awayteam:
+![Hometeam checking](/HTEAM_check.png) ![Awayteam checking](/ATEAM_check.png)
