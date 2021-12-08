@@ -202,7 +202,7 @@ We can see that:
 - when our model predicts **'D'** with a probability of **at least 55%**, we have a precision of **43%.** It occured **14** times (6:heavy_check_mark: / 8:x:)
 - when our model predicts **'D'** with a probability of **at least 65%**, we have a precision of **100%.** It occured **2** times (2:heavy_check_mark: / 0:x:)
 - when our model predicts **'A'** with a probability of **at least 55%**, we have a precision of **33%.** It occured **6** times (2:heavy_check_mark: / 4:x:)
-- when our model predicts **'A'** with a probability of **at least 60%**, we have a precision of **50%.** It occured **2** times (2:heavy_check_mark: / 1:x:)
+- when our model predicts **'A'** with a probability of **at least 60%**, we have a precision of **50%.** It occured **2** times (1:heavy_check_mark: / 1:x:)
 
 -------
 
@@ -223,8 +223,8 @@ Finally, just call **predict(links)**. The predict function receives just one pa
 
 -----
 
-Thanks for reaching here. If you have anything to talk to me, feel free to contact me at:
-Email: contact@mathfigueiredo.com
-Linkedin: https://www.linkedin.com/in/mathfigueiredo
-Professional Portfolio: https://mathfigueiredo.com
+Thanks for reaching here. If you have anything to talk to me, feel free to contact me at:<br>
+Email: contact@mathfigueiredo.com <br>
+Linkedin: https://www.linkedin.com/in/mathfigueiredo <br>
+Professional Portfolio: https://mathfigueiredo.com <br>
 
