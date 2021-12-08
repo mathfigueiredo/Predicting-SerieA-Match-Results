@@ -4,7 +4,7 @@ Web scraping, cleaning, and analyzing data to predict match results
 -------
 
 ### Summary
-1. [Things you should know](https://github.com/mathfigueiredo/Predicting-SerieA-Match-Results#why-am-i-doing-this)
+1. [Things you should know](#why-am-i-doing-this)
 
 --------
 ### Things you should know
