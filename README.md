@@ -6,7 +6,10 @@ Web scraping, cleaning, and analyzing data to predict match results
 - We are going to get our data from the [Globo Esporte website](https://ge.globo.com/futebol/brasileirao-serie-a/)
 - To make real time predictions, we should go to the website provided above, look for a specific match and get the link at the bottom of the match container (the green text saying (**Acompanhe em tempo real**)
 - This text normally appears 60 to 30 minutes before the match starts, with all the players and tacticals of each team, which we will use to make our predictions
-- In the datasets of this project, you will see the columns **result** and **pred** (prediction). They can assume 3 values: **'H'** (Home team wins), **'A'** (Away team wins) or **'D'** (Draw)
+- In the datasets of this project, you will see the columns **result** and **pred** (prediction). They can assume 3 values:
+    - **'H'** (Home team wins)
+    - **'A'** (Away team wins) and
+    - **'D'** (Draw)
 
 --------
 
