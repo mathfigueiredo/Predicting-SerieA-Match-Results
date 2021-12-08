@@ -1,6 +1,11 @@
 # Brazilian-National-Soccer---Predicting-Match-Results
 Web scraping, cleaning, and analyzing data to predict match results
 
+-------
+
+### Summary
+1. [Things you should know](https://github.com/mathfigueiredo/Predicting-SerieA-Match-Results#why-am-i-doing-this)
+
 --------
 ### Things you should know
 - We are going to get our data from the [Globo Esporte website](https://ge.globo.com/futebol/brasileirao-serie-a/)
