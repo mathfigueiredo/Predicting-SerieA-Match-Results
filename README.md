@@ -11,7 +11,7 @@ Web scraping, cleaning, and analyzing data to predict match results
 5. [Tuning model parameters (using GridSearchCV)](#tuning-model-parameters-using-gridsearchcv)
 6. [Testing our model](#testing-our-model)
 7. [Finally... Predicting!](#finally-predicting)
-8. [Feel free to contact me!](#thank-you-for-reaching-here)
+8. [Contact me!](#thank-you-for-reaching-here)
 --------
 ### Things you should know
 - We are going to get our data from the [Globo Esporte website](https://ge.globo.com/futebol/brasileirao-serie-a/)
