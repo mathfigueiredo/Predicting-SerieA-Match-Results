@@ -172,7 +172,7 @@ print("Precision when predicting D: {:.2f}".format(calc_precision(all_prediction
 
 Output:
 
-![calc precision example](/calc_precision_function.png)
+![calc precision example](/img/calc_precision_function.png)
 
 Of course we would be happier with a more accurate predict, but let's keep in mind that match results are not normal distributions and we can get more right predictions with our model than with some random classification. Let's check that out.
 
@@ -183,7 +183,7 @@ print("Percentage of real result D starting from matchweek 8: {:.2f}".format(len
 ```
 
 Output:
-![percentage of real result](/percentage_of_real_result.png)
+![percentage of real result](/img/percentage_of_real_result.png)
 
 As we can see, if we'd say all the matches would be H, A or D, we would get a worse score than with our model.
 But we can extract more refined statements from this. Let's consider the precision score based on the probabilities given by our model.
@@ -192,7 +192,7 @@ Let's create a DataFrame for each possible predicted value (H, A and D), using *
 
 The output looks like this:
 
-![calc percentage with perc function example](/calc_percentage_with_perc.png)
+![calc percentage with perc function example](/img/calc_percentage_with_perc.png)
 
 Wow. Calm down. Let's relax and analyse this responsibly.<br>
 We can see that:
