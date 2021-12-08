@@ -11,7 +11,7 @@ Web scraping, cleaning, and analyzing data to predict match results
 5. [Tuning model parameters (using GridSearchCV)](#tuning-model-parameters-using-gridsearchcv)
 6. [Testing our model](#testing-our-model)
 7. [Finally... Predicting!](#finally-predicting)
-
+8. [Contact](#thank-you-for-reaching-here)
 --------
 ### Things you should know
 - We are going to get our data from the [Globo Esporte website](https://ge.globo.com/futebol/brasileirao-serie-a/)
@@ -237,7 +237,8 @@ Finally, just call **predict(links)**. The predict function receives just one pa
 
 -----
 
-Thanks for reaching here. If you have anything to talk to me, feel free to contact me at:<br>
+### Thank you for reaching here!
+If you have anything to talk to me, feel free to contact me at:<br>
 Email: contact@mathfigueiredo.com <br>
 Linkedin: https://www.linkedin.com/in/mathfigueiredo <br>
 Professional Portfolio: https://mathfigueiredo.com <br>
