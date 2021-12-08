@@ -193,7 +193,7 @@ Let's create a DataFrame for each possible predicted value (H, A and D), using *
 
 The output looks like this:
 
-![calc percentage with perc function example](/img/calc_precision_with_perc.png)
+![calc percentage with perc function example](/img/calc_precision_with_perc_function.png)
 
 Wow. Calm down. Let's relax and analyse this responsibly.<br>
 We can see that:
