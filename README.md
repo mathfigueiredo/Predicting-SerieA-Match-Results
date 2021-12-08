@@ -4,7 +4,13 @@ Web scraping, cleaning, and analyzing data to predict match results
 -------
 
 ### Summary
-1. [Things you should know](#why-am-i-doing-this)
+1. [Things you should know](#things-you-should-know)
+2. [Why am I doing this?](#why-am-i-doing-this)
+3. [Knowing our dataset](#knowing-our-dataset)
+4. [Webscraping our data](#webscraping-our-data)
+5. [Tuning model parameters (using GridSearchCV)](#tuning-model-parameters-using-gridsearchcv)
+6. [Testing our model](#testing-our-model)
+7. [Finally... Predicting!](#finally-predicting)
 
 --------
 ### Things you should know
@@ -66,7 +72,7 @@ The last 3 columns are HFULLGOAL (Home goals), AFULLGOAL(Away goals), FULLRESULT
 
 ----------
 
-### Webscraping the data
+### Webscraping our data
 The two greater Brazilian Soccer Leagues (Série A and Série B) have 20 teams each, which means that each league will have 380 matches. Getting these data manually would be painful, as each match starts with 22 players. Also, we could make lots of mistakes if we try this. My solution was to create a bot that goes to some website and grasp the useful information. I used two tools to build this bot: Python and Selenium.
 <br>
 You can check the full code here at the [BRScraping.ipynb](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/BRScraping.ipynb) notebook.
