@@ -1,4 +1,4 @@
-# Brazilian-National-Soccer---Predicting-Match-Results
+# Predicting Brazilian Serie A Match Results
 Web scraping, cleaning, and analyzing data to predict match results
 
 -------
