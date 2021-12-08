@@ -40,35 +40,39 @@ As we can see, with this player, Fortaleza has twice the chance of winning a mat
 
 ### Knowing our dataset
 To understand our dataset:
-<br>
+
 Each team uses different sets of tactical arrangements, so I decided to separete them in 4 major positions:
 - GK: Goalkeeper (1)
 - DEF: Defenders (max. 5)
 - MID: Midfielders (max. 6)
 - FOR: Forward (max. 5)
-<br>
+
+
 The initial letter of each player columns are H (Home) or A (Away):
 - HDEF1 stands for Home team Defender 1
 - AMID3 stands for Away team Midfielder 3
 - and so forth...
 - When there is no player in such position, we use 'none'
-<br>
+
 The last 3 columns are HFULLGOAL (Home goals), AFULLGOAL(Away goals), FULLRESULT (Result of match).
 
 ----------
 
 ### Webscraping the data
 The two greater Brazilian Soccer Leagues (Série A and Série B) have 20 teams each, which means that each league will have 380 matches. Getting these data manually would be painful, as each match starts with 22 players. Also, we could make lots of mistakes if we try this. My solution was to create a bot that goes to some website and grasp the useful information. I used two tools to build this bot: Python and Selenium.
-<br><br>
+<br>
 You can check the full code here at the [BRScraping.ipynb](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/BRScraping.ipynb) notebook.
-<br><br>
+
+
 It is very simple to use this bot. All you should do is run the **append_matchweeks** function with two parameters:
 - start_matchweek: the first matchweek to grasp.
 - end_matchweek: the last matchweek to grasp. Together, they should be an interval.
-<br>
-i.e.: to get the data from matchweek 1 and matchweek 36, just call the function *append_matchweeks(1,36)*
+
+
+i.e.: to get the data from matchweek 1 and matchweek 36, just call the function *append_matchweeks(1,36)* <br>
 i.e.: to get data from matchweek 28, call the function *append_matchweeks(28,28)*
-<br>
+
+
 But remember: you should have a **table** Pandas Dataframe so the function can append the gathered data to this table. If you don't have this table yet, make an empty DataFrame with those columns to start:
 
 ```
@@ -83,11 +87,13 @@ If you already have a table with some matchweeks in it, just load it with pandas
 table = pd.read_csv('BR-21.csv')
 ```
 In my case, I saved it with the name 'BR-21.csv'. In this line, I'm just assigning my saved table to the **table** variable.
-<br>
+
+
 It is always good to check the consistency of our data. Sometimes, due to instabilities on internet connection or on the website server, our bot can get wrong data or duplicated observations. We can check countplots and duplicated rows just to be sure that all teams have the amount of games that we expect.
-<br>
+
+
 i.e.: for the matchweek 36, we want all teams to have exactly 18 matches as Hometeam and the same amount as Awayteam:
-<br>
+
 
 ![Awayteam checking](/img/ATEAM_check.png)
 
@@ -99,7 +105,7 @@ That's it for WebScraping. We also find a section on the notebook to get Feature
 ----------
 
 ### Tuning model parameters (using GridSearchCV)
-You can check the [Tuning notebook](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/Tuning.ipynb) to see how I used GridSearchCV to achieve the best result of each parameter. First, I found the best parameters for each model. Then, I tried 30 differents train and test splits for each model and got a table with some information about the accuracy scores foundm. As you can see in the table below, the best model for this dataset seems to be the Random Forest Classifier, with an accuracy score mean of **0.47** and std **0.013**.
+You can check the [Tuning notebook](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/Tuning.ipynb) to see how I used GridSearchCV to achieve the best result of each parameter. First, I found the best parameters for each model. Then, I tried 30 differents train and test splits for each model and got a table with some information about the accuracy scores found. As you can see in the table below, the best model for this dataset seems to be the Random Forest Classifier, with an accuracy score mean of **0.47** and std **0.013**.
 
 
 ![Tuning results](/img/tuning_results.png)
@@ -108,7 +114,7 @@ You can check the [Tuning notebook](https://github.com/mathfigueiredo/Brazilian-
 
 ### Testing our Model
 You can check out the [Predicting notebook](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/Predict.ipynb) and make your own analysis.
-<br>
+
 First, we need to load the **table** (named exactly like this):
 
 ```
@@ -126,9 +132,9 @@ Check out the output of calling random_forest_matchweek(34):
 
 The function created a model and trained it with data from matchweek 1 to matchweek 33. As you can see, it predicted 60% of results correctly.
 
-<br>
-So, to test how our model would perform through the year, let's consider predictions from matchweek 8 to the end. Why? Because 8 matchweeks are enough to get at least 3 matches of each team as home team and as away team, so the model can use these data to make the first predictions. It would not be smart to start predicting results from the second or third matchweek, because we just could not have consistent data do train our model.
-<br>
+
+So, to test how our model would perform through the year, let's consider predictions from matchweek 8 to the end. Why? Because 8 matchweeks are enough to get at least 3 matches of each team as home team and as away team, so the model can use these data to make the first predictions. It would not be smart to start predicting results from the second or third matchweek, because we just could not have consistent data to train our model.
+
 What we will do here is create a DataFrame to keep our predictions:
 
 ```
@@ -140,7 +146,7 @@ Note:
 - probH: probability of Home team winning
 - probD: probability of Draw
 - probA: probability of Away team winning
-<br>
+
 
 Then, we want to predict all matchweeks since 8th and append them to our new DataFrame **all_predictions.**
 
@@ -155,7 +161,7 @@ This will take a while and will print the accuracy score of each matchweek.
 Now, with some code that you can check directly in the notebook, we transform the probabilities columns into integers columns and create two functions to determine the precision of our model:
 - calc_precision: this function simply receives two parameters (df, result) and calculate the amount of right predictions of the passed result.
 - calc_precision_with_perc: this function gives us more detailed information about the precisions based on the probabilities found by our model.
-<br>
+
 Using **calc_precision**:
 
 ```
@@ -166,7 +172,7 @@ print("Precision when predicting D: {:.2f}".format(calc_precision(all_prediction
 
 Output:
 
-![calc precision example](/calc_precision_function.png)
+![calc precision example](/img/calc_precision_function.png)
 
 Of course we would be happier with a more accurate predict, but let's keep in mind that match results are not normal distributions and we can get more right predictions with our model than with some random classification. Let's check that out.
 
@@ -177,16 +183,17 @@ print("Percentage of real result D starting from matchweek 8: {:.2f}".format(len
 ```
 
 Output:
-![percentage of real result](/percentage_of_real_result.png)
+
+![percentage of real result](/img/percentage_of_real_result.png)
 
 As we can see, if we'd say all the matches would be H, A or D, we would get a worse score than with our model.
 But we can extract more refined statements from this. Let's consider the precision score based on the probabilities given by our model.
-<br>
+
 Let's create a DataFrame for each possible predicted value (H, A and D), using **calc_precision_with_perc** function to get more refined information about precision and the amount of occurencies for each probability predicted by our model (the code is a bit long, so, please check it out in the notebook).
-<br>
+
 The output looks like this:
 
-![calc percentage with perc function example](/calc_percentage_with_perc.png)
+![calc percentage with perc function example](/img/calc_precision_with_perc_function.png)
 
 Wow. Calm down. Let's relax and analyse this responsibly.<br>
 We can see that:
@@ -195,13 +202,13 @@ We can see that:
 - when our model predicts **'D'** with a probability of **at least 55%**, we have a precision of **43%.** It occured **14** times (6:heavy_check_mark: / 8:x:)
 - when our model predicts **'D'** with a probability of **at least 65%**, we have a precision of **100%.** It occured **2** times (2:heavy_check_mark: / 0:x:)
 - when our model predicts **'A'** with a probability of **at least 55%**, we have a precision of **33%.** It occured **6** times (2:heavy_check_mark: / 4:x:)
-- when our model predicts **'A'** with a probability of **at least 60%**, we have a precision of **50%.** It occured **2** times (2:heavy_check_mark: / 1:x:)
+- when our model predicts **'A'** with a probability of **at least 60%**, we have a precision of **50%.** It occured **2** times (1:heavy_check_mark: / 1:x:)
 
 -------
 
 ### Finally... Predicting!
 To make real time predictions, we should go to the [Globo Esporte website](https://ge.globo.com/futebol/brasileirao-serie-a/) 60 to 30 minutes before our match start and click on the green button saying **Acompanhe em tempo real**. It will take us to the specific match webpage containing information about the players and tacticals of each team.
-<br>
+
 The only thing we need to do now is create a python list **links** with all the the match links we want to predict. Each link should be a string and if there is more than one, separate them by comma.
 
 ```
@@ -216,8 +223,8 @@ Finally, just call **predict(links)**. The predict function receives just one pa
 
 -----
 
-Thanks for reaching here. If you have anything to talk to me, feel free to contact me at:
-Email: contact@mathfigueiredo.com
-Linkedin: https://www.linkedin.com/in/mathfigueiredo
-Professional Portfolio: https://mathfigueiredo.com
+Thanks for reaching here. If you have anything to talk to me, feel free to contact me at:<br>
+Email: contact@mathfigueiredo.com <br>
+Linkedin: https://www.linkedin.com/in/mathfigueiredo <br>
+Professional Portfolio: https://mathfigueiredo.com <br>
 
