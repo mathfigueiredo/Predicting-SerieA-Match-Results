@@ -183,6 +183,7 @@ print("Percentage of real result D starting from matchweek 8: {:.2f}".format(len
 ```
 
 Output:
+
 ![percentage of real result](/img/percentage_of_real_result.png)
 
 As we can see, if we'd say all the matches would be H, A or D, we would get a worse score than with our model.
@@ -192,7 +193,7 @@ Let's create a DataFrame for each possible predicted value (H, A and D), using *
 
 The output looks like this:
 
-![calc percentage with perc function example](/img/calc_percentage_with_perc.png)
+![calc percentage with perc function example](/img/calc_precision_with_perc.png)
 
 Wow. Calm down. Let's relax and analyse this responsibly.<br>
 We can see that:
