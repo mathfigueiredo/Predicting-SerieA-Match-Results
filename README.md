@@ -1,17 +1,31 @@
-# Brazilian-National-Soccer---Predicting-Match-Results
+# Predicting Brazilian Serie A Match Results
 Web scraping, cleaning, and analyzing data to predict match results
 
+-------
+
+### Summary
+1. [Things you should know](#things-you-should-know)
+2. [Why am I doing this?](#why-am-i-doing-this)
+3. [Knowing our dataset](#knowing-our-dataset)
+4. [Webscraping our data](#webscraping-our-data)
+5. [Tuning model parameters (using GridSearchCV)](#tuning-model-parameters-using-gridsearchcv)
+6. [Testing our model](#testing-our-model)
+7. [Finally... Predicting!](#finally-predicting)
+8. [Contact me!](#thank-you-for-reaching-here)
 --------
 ### Things you should know
 - We are going to get our data from the [Globo Esporte website](https://ge.globo.com/futebol/brasileirao-serie-a/)
 - To make real time predictions, we should go to the website provided above, look for a specific match and get the link at the bottom of the match container (the green text saying (**Acompanhe em tempo real**)
 - This text normally appears 60 to 30 minutes before the match starts, with all the players and tacticals of each team, which we will use to make our predictions
-- In the datasets of this project, you will see the columns **result** and **pred** (prediction). They can assume 3 values: **'H'** (Home team wins), **'A'** (Away team wins) or **'D'** (Draw)
+- In the datasets of this project, you will see the columns **result** and **pred** (prediction). They can assume 3 values:
+    - **'H'** (Home team wins)
+    - **'A'** (Away team wins) and
+    - **'D'** (Draw)
 
 --------
 
 ### Why am I doing this?
-I realized that every single Machine Learning model related to soccer that people present on internet focus on number of goals or some other statistics, like shoots, faults or corners, but people are forgetting about the most important data. All those numbers are made by real humans: the players. It does not matter if Barcelona is facing Granada. What does really matter is who plays for each team. Of course, with their best respective players, Barcelona should have a greater chance of winning, but if Barcelona puts only the under-16 players, probably the odds will turn to Granada. So, I decided to get data about the 11 players who started the matches. There is a chance of having players with the same name in different teams so I put a prefix for everyone, so the player 'Gil' from Corinthians will be displayed as 'COR_gil', the player 'Felipe alves' from Fortaleza will be displayed as 'FOR_felipealves' and so forth...
+I realized that every single Machine Learning model related to soccer that people present on internet focus on number of goals or some other statistics, like shoots, faults or corners, but people are forgetting about the most important data. All those numbers are made by real humans: the players. It does not matter if Barcelona is facing Granada. What does really matter is who plays for each team. Of course, with their best respective players, Barcelona should have a greater chance of winning, but if Barcelona puts only the under-16 players, probably the odds will turn to Granada. So, I decided to get data about the 22 players who started the matches. There is a chance of having players with the same name in different teams so I put a prefix for everyone, so the player 'Gil' from Corinthians will be displayed as 'COR_gil', the player 'Felipe Alves' from Fortaleza will be displayed as 'FOR_felipealves' and so forth...
 
 First, I want to convince you that using the players' name to predict the result can be useful in some situations. Let's check the games where Fortaleza played with and without the player Lucas Crispim.
 
@@ -58,7 +72,7 @@ The last 3 columns are HFULLGOAL (Home goals), AFULLGOAL(Away goals), FULLRESULT
 
 ----------
 
-### Webscraping the data
+### Webscraping our data
 The two greater Brazilian Soccer Leagues (Série A and Série B) have 20 teams each, which means that each league will have 380 matches. Getting these data manually would be painful, as each match starts with 22 players. Also, we could make lots of mistakes if we try this. My solution was to create a bot that goes to some website and grasp the useful information. I used two tools to build this bot: Python and Selenium.
 <br>
 You can check the full code here at the [BRScraping.ipynb](https://github.com/mathfigueiredo/Brazilian-National-Soccer---Predicting-Match-Results/blob/main/BRScraping.ipynb) notebook.
@@ -223,7 +237,8 @@ Finally, just call **predict(links)**. The predict function receives just one pa
 
 -----
 
-Thanks for reaching here. If you have anything to talk to me, feel free to contact me at:<br>
+### Thank you for reaching here!
+If you have anything to talk to me, feel free to contact me at:<br>
 Email: contact@mathfigueiredo.com <br>
 Linkedin: https://www.linkedin.com/in/mathfigueiredo <br>
 Professional Portfolio: https://mathfigueiredo.com <br>
